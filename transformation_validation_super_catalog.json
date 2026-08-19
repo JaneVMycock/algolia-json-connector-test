@@ -1,0 +1,197 @@
+[
+  {
+    "objectID": "pattern-001",
+    "title": "Blue trainers",
+    "model_year": "2022,2023,2024",
+    "product": {
+      "name": "Blue trainers",
+      "brand": "Acme"
+    },
+    "price": 100,
+    "tags": [
+      "shoes",
+      "blue",
+      "sale"
+    ],
+    "author_name": [
+      "Alice Smith",
+      "Bob Jones"
+    ],
+    "sku": "ABC-123",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-002",
+    "title": "Red trainers",
+    "model_year": [
+      "2021",
+      "2022"
+    ],
+    "product": {
+      "name": "Red trainers",
+      "brand": "Beta"
+    },
+    "price": "125.50",
+    "tags": [
+      [
+        "shoes",
+        "red"
+      ],
+      [
+        "new"
+      ]
+    ],
+    "author_name": "Carol White",
+    "sku": "XYZ-999",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-003",
+    "title": "Green boots",
+    "model_year": null,
+    "product": {
+      "name": "Green boots"
+    },
+    "price": 0,
+    "tags": [],
+    "author_name": null,
+    "sku": "BROKEN_SKU",
+    "status": "inactive"
+  },
+  {
+    "objectID": "pattern-004",
+    "title": "Black jacket",
+    "product": {
+      "name": "Black jacket",
+      "brand": "Northwind"
+    },
+    "price": 250,
+    "tags": [
+      "apparel",
+      "black"
+    ],
+    "author_name": [
+      "Dana"
+    ],
+    "sku": "JKT-001",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-005",
+    "title": "White shirt",
+    "model_year": "2020",
+    "product": {
+      "name": "White shirt",
+      "brand": "Acme"
+    },
+    "price": "not-a-number",
+    "tags": [
+      "apparel",
+      null,
+      "white"
+    ],
+    "author_name": [],
+    "sku": "SHT-777",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-006",
+    "title": "Vintage book",
+    "first_publish_year": 1953,
+    "product": {
+      "name": "Vintage book",
+      "brand": "BooksCo"
+    },
+    "price": 15.99,
+    "tags": [
+      "books",
+      "vintage"
+    ],
+    "author_name": [
+      "Jane Doe",
+      "John Roe"
+    ],
+    "sku": "BOOK-1953",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-007",
+    "title": "Unknown year book",
+    "first_publish_year": 0,
+    "product": {
+      "name": "Unknown year book",
+      "brand": "BooksCo"
+    },
+    "price": 9.99,
+    "tags": [
+      "books"
+    ],
+    "author_name": [
+      "Sam Writer"
+    ],
+    "sku": "BOOK-0000",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-008",
+    "title": "Nested category item",
+    "model_year": "2019,2020",
+    "product": {
+      "name": "Nested category item",
+      "brand": "NestedCo",
+      "details": {
+        "category": "outdoor",
+        "dimensions": {
+          "width": 10,
+          "height": 20
+        }
+      }
+    },
+    "price": 75,
+    "tags": [
+      [
+        "outdoor"
+      ],
+      [
+        "featured",
+        "summer"
+      ]
+    ],
+    "author_name": [
+      "Alex One",
+      "Alex Two"
+    ],
+    "sku": "OUT-808",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-009",
+    "title": "",
+    "model_year": "2024",
+    "product": null,
+    "price": null,
+    "tags": null,
+    "sku": "",
+    "status": "draft"
+  },
+  {
+    "objectID": "pattern-010",
+    "title": "Collision test",
+    "model_year": "2022,2023",
+    "product": {
+      "name": "Collision test",
+      "brand": "Gamma"
+    },
+    "price": 49.95,
+    "price_label": "existing-value",
+    "tags": [
+      "test",
+      "collision"
+    ],
+    "author_name": [
+      "Taylor Example"
+    ],
+    "sku": "COL-010",
+    "status": "active"
+  }
+]
