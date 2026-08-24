@@ -1,7 +1,7 @@
 [
   {
     "objectID": "pattern-001",
-    "test_note": "1a: split model_year, write back to model_year (first run)",
+    "test_note": "1a: split model_year, write back to model_year (first run); increment: clean numeric price",
     "title": "Blue trainers",
     "model_year": "2022,2023,2024",
     "product": { "name": "Blue trainers", "brand": "Acme" },
@@ -13,11 +13,12 @@
   },
   {
     "objectID": "pattern-002",
-    "test_note": "1a: model_year already an array = simulates state after first run; price as string for increment coercion",
+    "test_note": "1a: model_year already an array = post-first-run state; increment: price as string; overwrite: price_label pre-exists; null-check: author_name wrong type (string)",
     "title": "Red trainers",
     "model_year": ["2021", "2022"],
     "product": { "name": "Red trainers", "brand": "Beta" },
     "price": "125.50",
+    "price_label": "existing-value",
     "tags": [["shoes", "red"], ["new"]],
     "author_name": "Carol White",
     "sku": "XYZ-999",
@@ -25,7 +26,7 @@
   },
   {
     "objectID": "pattern-003",
-    "test_note": "null-check: author_name null, model_year null; Pattern 2: product has no brand; regex: sku no match",
+    "test_note": "null-check: author_name null; 1a: model_year null (silent skip); Pattern 2: product has no brand; regex: sku no match; increment: price zero",
     "title": "Green boots",
     "model_year": null,
     "product": { "name": "Green boots" },
@@ -37,30 +38,29 @@
   },
   {
     "objectID": "pattern-004",
-    "test_note": "1b: messy title - trim/lower changes it on run 1, nothing on run 2 (idempotence demo); model_year absent (vs null in 003)",
+    "test_note": "1b: messy title (changes run 1, nothing run 2); null-check: author_name ABSENT; Pattern 2: product null; increment: price null",
     "title": "  Black JACKET  ",
-    "product": { "name": "Black jacket", "brand": "Northwind" },
-    "price": 250,
+    "product": null,
+    "price": null,
     "tags": ["apparel", "black"],
-    "author_name": ["Dana"],
     "sku": "JKT-001",
     "status": "active"
   },
   {
     "objectID": "pattern-005",
-    "test_note": "increment: price not-a-number; null-check: author_name empty array; tags contain null element",
+    "test_note": "increment: price not-a-number; null-check: author_name empty array; regex: sku empty; tags contain null element",
     "title": "White shirt",
     "model_year": "2020",
     "product": { "name": "White shirt", "brand": "Acme" },
     "price": "not-a-number",
     "tags": ["apparel", null, "white"],
     "author_name": [],
-    "sku": "SHT-777",
+    "sku": "",
     "status": "active"
   },
   {
     "objectID": "pattern-006",
-    "test_note": "null-check: author_name absent entirely; Pattern 2: product null; increment: price null; regex: sku empty",
+    "test_note": "Spare edge record (outside 5-record preview window): everything absent or null",
     "title": "",
     "model_year": "2024",
     "product": null,
@@ -71,7 +71,7 @@
   },
   {
     "objectID": "pattern-007",
-    "test_note": "overwrite-existing: price_label already has a value - transformation writing price_label demonstrates silent overwrite",
+    "test_note": "Spare (outside preview window): secondary collision record",
     "title": "Collision test",
     "model_year": "2022,2023",
     "product": { "name": "Collision test", "brand": "Gamma" },
@@ -122,5 +122,4 @@
     "sku": "BOOK-0000",
     "status": "active"
   }
-  ]
 ]
