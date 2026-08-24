@@ -1,57 +1,34 @@
 [
   {
     "objectID": "pattern-001",
+    "test_note": "1a: split model_year, write back to model_year (first run)",
     "title": "Blue trainers",
     "model_year": "2022,2023,2024",
-    "product": {
-      "name": "Blue trainers",
-      "brand": "Acme"
-    },
+    "product": { "name": "Blue trainers", "brand": "Acme" },
     "price": 100,
-    "tags": [
-      "shoes",
-      "blue",
-      "sale"
-    ],
-    "author_name": [
-      "Alice Smith",
-      "Bob Jones"
-    ],
+    "tags": ["shoes", "blue", "sale"],
+    "author_name": ["Alice Smith", "Bob Jones"],
     "sku": "ABC-123",
     "status": "active"
   },
   {
     "objectID": "pattern-002",
+    "test_note": "1a: model_year already an array = simulates state after first run; price as string for increment coercion",
     "title": "Red trainers",
-    "model_year": [
-      "2021",
-      "2022"
-    ],
-    "product": {
-      "name": "Red trainers",
-      "brand": "Beta"
-    },
+    "model_year": ["2021", "2022"],
+    "product": { "name": "Red trainers", "brand": "Beta" },
     "price": "125.50",
-    "tags": [
-      [
-        "shoes",
-        "red"
-      ],
-      [
-        "new"
-      ]
-    ],
+    "tags": [["shoes", "red"], ["new"]],
     "author_name": "Carol White",
     "sku": "XYZ-999",
     "status": "active"
   },
   {
     "objectID": "pattern-003",
+    "test_note": "null-check: author_name null, model_year null; Pattern 2: product has no brand; regex: sku no match",
     "title": "Green boots",
     "model_year": null,
-    "product": {
-      "name": "Green boots"
-    },
+    "product": { "name": "Green boots" },
     "price": 0,
     "tags": [],
     "author_name": null,
@@ -60,112 +37,30 @@
   },
   {
     "objectID": "pattern-004",
-    "title": "Black jacket",
-    "product": {
-      "name": "Black jacket",
-      "brand": "Northwind"
-    },
+    "test_note": "1b: messy title - trim/lower changes it on run 1, nothing on run 2 (idempotence demo); model_year absent (vs null in 003)",
+    "title": "  Black JACKET  ",
+    "product": { "name": "Black jacket", "brand": "Northwind" },
     "price": 250,
-    "tags": [
-      "apparel",
-      "black"
-    ],
-    "author_name": [
-      "Dana"
-    ],
+    "tags": ["apparel", "black"],
+    "author_name": ["Dana"],
     "sku": "JKT-001",
     "status": "active"
   },
   {
     "objectID": "pattern-005",
+    "test_note": "increment: price not-a-number; null-check: author_name empty array; tags contain null element",
     "title": "White shirt",
     "model_year": "2020",
-    "product": {
-      "name": "White shirt",
-      "brand": "Acme"
-    },
+    "product": { "name": "White shirt", "brand": "Acme" },
     "price": "not-a-number",
-    "tags": [
-      "apparel",
-      null,
-      "white"
-    ],
+    "tags": ["apparel", null, "white"],
     "author_name": [],
     "sku": "SHT-777",
     "status": "active"
   },
   {
     "objectID": "pattern-006",
-    "title": "Vintage book",
-    "first_publish_year": 1953,
-    "product": {
-      "name": "Vintage book",
-      "brand": "BooksCo"
-    },
-    "price": 15.99,
-    "tags": [
-      "books",
-      "vintage"
-    ],
-    "author_name": [
-      "Jane Doe",
-      "John Roe"
-    ],
-    "sku": "BOOK-1953",
-    "status": "active"
-  },
-  {
-    "objectID": "pattern-007",
-    "title": "Unknown year book",
-    "first_publish_year": 0,
-    "product": {
-      "name": "Unknown year book",
-      "brand": "BooksCo"
-    },
-    "price": 9.99,
-    "tags": [
-      "books"
-    ],
-    "author_name": [
-      "Sam Writer"
-    ],
-    "sku": "BOOK-0000",
-    "status": "active"
-  },
-  {
-    "objectID": "pattern-008",
-    "title": "Nested category item",
-    "model_year": "2019,2020",
-    "product": {
-      "name": "Nested category item",
-      "brand": "NestedCo",
-      "details": {
-        "category": "outdoor",
-        "dimensions": {
-          "width": 10,
-          "height": 20
-        }
-      }
-    },
-    "price": 75,
-    "tags": [
-      [
-        "outdoor"
-      ],
-      [
-        "featured",
-        "summer"
-      ]
-    ],
-    "author_name": [
-      "Alex One",
-      "Alex Two"
-    ],
-    "sku": "OUT-808",
-    "status": "active"
-  },
-  {
-    "objectID": "pattern-009",
+    "test_note": "null-check: author_name absent entirely; Pattern 2: product null; increment: price null; regex: sku empty",
     "title": "",
     "model_year": "2024",
     "product": null,
@@ -175,23 +70,57 @@
     "status": "draft"
   },
   {
-    "objectID": "pattern-010",
+    "objectID": "pattern-007",
+    "test_note": "overwrite-existing: price_label already has a value - transformation writing price_label demonstrates silent overwrite",
     "title": "Collision test",
     "model_year": "2022,2023",
-    "product": {
-      "name": "Collision test",
-      "brand": "Gamma"
-    },
+    "product": { "name": "Collision test", "brand": "Gamma" },
     "price": 49.95,
     "price_label": "existing-value",
-    "tags": [
-      "test",
-      "collision"
-    ],
-    "author_name": [
-      "Taylor Example"
-    ],
+    "tags": ["test", "collision"],
+    "author_name": ["Taylor Example"],
     "sku": "COL-010",
     "status": "active"
+  },
+  {
+    "objectID": "pattern-008",
+    "test_note": "LLM phase (wrong field): nested product.details.category for nested-reference case",
+    "title": "Nested category item",
+    "model_year": "2019,2020",
+    "product": {
+      "name": "Nested category item",
+      "brand": "NestedCo",
+      "details": { "category": "outdoor", "dimensions": { "width": 10, "height": 20 } }
+    },
+    "price": 75,
+    "tags": [["outdoor"], ["featured", "summer"]],
+    "author_name": ["Alex One", "Alex Two"],
+    "sku": "OUT-808",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-009",
+    "test_note": "LLM phase (wrong-type placeholder): normal book for contrast with pattern-010",
+    "title": "Vintage book",
+    "first_publish_year": 1953,
+    "product": { "name": "Vintage book", "brand": "BooksCo" },
+    "price": 15.99,
+    "tags": ["books", "vintage"],
+    "author_name": ["Jane Doe", "John Roe"],
+    "sku": "BOOK-1953",
+    "status": "active"
+  },
+  {
+    "objectID": "pattern-010",
+    "test_note": "LLM phase (wrong-type placeholder): first_publish_year 0 as a fake null",
+    "title": "Unknown year book",
+    "first_publish_year": 0,
+    "product": { "name": "Unknown year book", "brand": "BooksCo" },
+    "price": 9.99,
+    "tags": ["books"],
+    "author_name": ["Sam Writer"],
+    "sku": "BOOK-0000",
+    "status": "active"
   }
+  ]
 ]
